@@ -1593,6 +1593,7 @@ GameObject:
   - component: {fileID: 1951207212}
   - component: {fileID: 1951207213}
   - component: {fileID: 1951207214}
+  - component: {fileID: 1951207215}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1689,7 +1690,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 2
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5def85778e4f18f428916ed34150e89c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1709,7 +1710,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1951207209}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5def85778e4f18f428916ed34150e89c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1780,6 +1781,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.22265786}
   serializedVersion: 2
   m_Radius: 0.62839204
+--- !u!114 &1951207215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951207209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0e6ddc9f954254084f584bdc9cf136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 1
+  JumpForce: 10
+  IsGrounded: 0
+  CheckGroundOffsetY: -1
+  CheckGroundRadius: 0.3
 --- !u!1 &1960160032
 GameObject:
   m_ObjectHideFlags: 0
