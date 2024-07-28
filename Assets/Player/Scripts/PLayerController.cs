@@ -27,10 +27,7 @@ public class PLayerController : MonoBehaviour
 
     void Update()
     {
-        JumpPlayer();
-        HorizontalMove = Input.GetAxisRaw("Horizontal") * Speed;
-
-        FlipSprite();
+        PlayerMover();
     }
     private void FixedUpdate()
     {
@@ -71,5 +68,12 @@ public class PLayerController : MonoBehaviour
             IsGrounded = true;
         else
             IsGrounded = false;
+    }
+
+    private void PlayerMover()
+    {
+        JumpPlayer();
+        FlipSprite();
+        HorizontalMove = Input.GetAxisRaw("Horizontal") * Speed;
     }
 }
