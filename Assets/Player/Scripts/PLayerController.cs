@@ -12,6 +12,9 @@ public class PLayerController : MonoBehaviour
     [Range(0, 10f)] public float Speed = 1f;
     [Range(0, 15f)] public float JumpForce = 8f;
 
+    [Header("Player Animation Settings")]
+    public Animator Animator;
+
     [Space]
     [Header("Ground Checer Settings")]
     public bool IsGrounded = false;
@@ -29,6 +32,7 @@ public class PLayerController : MonoBehaviour
     {
         PlayerMover();
     }
+
     private void FixedUpdate()
     {
         Vector2 targetVelocity = new Vector2(HorizontalMove * 10f, _rb.velocity.y);
@@ -51,14 +55,21 @@ public class PLayerController : MonoBehaviour
         else if (HorizontalMove > 0 && !FacingRight)
             Flip();
     }
-    private void JumpPlayer()
+
+    private void TryJump()
     {
         CheckGround();
-        if (IsGrounded && Input.GetKeyDown(KeyCode.Space))
-        {
+
+        if (IsGrounded == false)
+            Animator.SetBool("Jumping", true);
+        else
+            Animator.SetBool("Jumping", false);
+
+        if (IsGrounded && Input.GetKeyDown(KeyCode.Space))        
             _rb.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
-        }
+        
     }
+
     private void CheckGround()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll
@@ -72,7 +83,8 @@ public class PLayerController : MonoBehaviour
 
     private void PlayerMover()
     {
-        JumpPlayer();
+        Animator.SetFloat("HorizontalMove", Mathf.Abs(HorizontalMove));
+        TryJump();
         FlipSprite();
         HorizontalMove = Input.GetAxisRaw("Horizontal") * Speed;
     }
