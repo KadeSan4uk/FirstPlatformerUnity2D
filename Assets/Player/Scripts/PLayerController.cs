@@ -66,8 +66,7 @@ public class PLayerController : MonoBehaviour
             Animator.SetBool("Jumping", false);
 
         if (IsGrounded && Input.GetKeyDown(KeyCode.Space))        
-            _rb.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);
-        
+            _rb.AddForce(transform.up * JumpForce, ForceMode2D.Impulse);        
     }
 
     private void CheckGround()
@@ -83,9 +82,9 @@ public class PLayerController : MonoBehaviour
 
     private void PlayerMover()
     {
-        Animator.SetFloat("HorizontalMove", Mathf.Abs(HorizontalMove));
         TryJump();
         FlipSprite();
+        Animator.SetFloat("HorizontalMove", Mathf.Abs(HorizontalMove));// Abs всегда получаем положительнрое число
         HorizontalMove = Input.GetAxisRaw("Horizontal") * Speed;
     }
 }
