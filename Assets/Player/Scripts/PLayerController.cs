@@ -71,6 +71,7 @@ public class PLayerController : MonoBehaviour
 
     private void CheckGround()
     {
+        // в массиве колайдеров проверям количество тригеров, если больше 2 тогда на земле.
         Collider2D[] colliders = Physics2D.OverlapCircleAll
             (new Vector2(transform.position.x, transform.position.y + CheckGroundOffsetY), CheckGroundRadius);
 
