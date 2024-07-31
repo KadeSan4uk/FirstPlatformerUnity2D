@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class DamageController : MonoBehaviour
 {
-    public int CollisionDamage=10;
+    public int CollisionDamage = 10;
     public string CollisionTag;
 
     private void OnCollisionEnter2D(Collision2D collision)

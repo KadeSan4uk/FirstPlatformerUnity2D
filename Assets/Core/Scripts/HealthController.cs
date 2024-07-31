@@ -11,7 +11,7 @@ public class HealthController : MonoBehaviour
     {
         Health -= damage;
 
-        if(Health<0)
+        if (Health < 0)
             Destroy(gameObject);
     }
 
@@ -19,7 +19,7 @@ public class HealthController : MonoBehaviour
     {
         Health += bonusHealth;
 
-        if (Health>MaxHealth)
+        if (Health > MaxHealth)
             Health = MaxHealth;
     }
 }
