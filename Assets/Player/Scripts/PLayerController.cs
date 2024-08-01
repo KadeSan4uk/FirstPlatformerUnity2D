@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class PLayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rb;
     private float HorizontalMove = 0f;
